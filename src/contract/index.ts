@@ -1,0 +1,14 @@
+export const PoSPool_Address = {
+  71: '0x0a6770434329c1701fae28d8e7b2b06b5406ace4',
+  // 71: '0x6ca56ba74af77e2d1281faa943f86c2dd6583b45',
+  1030: '0xe9af34e140ab2a30e1ec1f39917aa506504b8c32'
+}
+
+export const RewardPool_Address = {
+  // 71: '0xfa377e22e0fe34525c2b156f73fb81c1ec86ee74',
+  // 1030: '0xfa377e22e0fe34525c2b156f73fb81c1ec86ee74'
+  // 71: '0xa9f51cd3e18B3B3D917be4Bcb2661f089Dc330Cc',
+  1030: '0xa9f51cd3e18B3B3D917be4Bcb2661f089Dc330Cc'
+  // 71: '0x48c079f28a0eF76235a420A42621c6C18EF78280',
+  // 1030: '0x48c079f28a0eF76235a420A42621c6C18EF78280'
+}
