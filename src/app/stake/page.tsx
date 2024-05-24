@@ -44,7 +44,6 @@ export default function Stake() {
   const [myStakeAvailable, setMyStakeAvailable] = useState(0)
   useEffect(() => {
     if (userSummary) {
-      console.log(userSummary)
       setMyStakeAvailable(Number((userSummary as any).available) * BASE)
     } else {
       setMyStakeAvailable(0)
@@ -143,7 +142,7 @@ export default function Stake() {
     setLoading2(true)
     try {
       const votePower = Number(amount2) / BASE
-      const hash = await doDecrease(parseUnits(amount2, balanceData!.decimals), votePower)
+      const hash = await doDecrease(votePower)
       setLoading2(false)
       setAmount2('')
       setModalConfig({ show: true, type: 'success', content: '交易已提交，请等待确认', scanHash: hash })
@@ -173,7 +172,7 @@ export default function Stake() {
     setLoading3(true)
     try {
       const votePower = Number(amount3) / BASE
-      const hash = await doWithdraw(parseUnits(amount3, balanceData!.decimals), votePower)
+      const hash = await doWithdraw(votePower)
       setLoading3(false)
       setModalConfig({ show: true, type: 'success', content: '交易已提交，请等待确认', scanHash: hash })
     } catch (error: any) {
@@ -362,9 +361,7 @@ export default function Stake() {
                 {detailsModalShowList.map(item => (
                   <div key={item.endBlock} className="grid grid-cols-[130px_1fr] md:grid-cols-2 border-t border-l border-gray-200/60">
                     <div className="px-4 py-2 border-r border-gray-200/60 h-full">{item.votePower}</div>
-                    <div className="px-4 py-2 border-r border-gray-200/60">
-                      {item.endTime} <br /> {item.endBlock}
-                    </div>
+                    <div className="px-4 py-2 border-r border-gray-200/60">{item.endTime}</div>
                   </div>
                 ))}
                 {detailsModalShowList.length === 0 ? <div className="text-center py-3 border border-b-0 border-gray-200/60">No data</div> : null}

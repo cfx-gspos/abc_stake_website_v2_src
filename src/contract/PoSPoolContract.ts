@@ -29,25 +29,23 @@ export function useIncreaseStake() {
 export function useDecreaseStake() {
   const chainId = useChainId()
   const { writeContractAsync } = useWriteContract()
-  return (amount: bigint, votePower: number) =>
+  return (votePower: number) =>
     writeContractAsync({
       abi,
       address: PoSPool_Address[chainId as keyof typeof PoSPool_Address] as Address,
       functionName: 'decreaseStake',
-      args: [votePower],
-      value: amount
+      args: [votePower]
     })
 }
 
 export function useWithdrawStake() {
   const chainId = useChainId()
   const { writeContractAsync } = useWriteContract()
-  return (amount: bigint, votePower: number) =>
+  return (votePower: number) =>
     writeContractAsync({
       abi,
       address: PoSPool_Address[chainId as keyof typeof PoSPool_Address] as Address,
       functionName: 'withdrawStake',
-      args: [votePower],
-      value: amount
+      args: [votePower]
     })
 }
